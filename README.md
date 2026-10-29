@@ -2,9 +2,21 @@
 
 MIT-licensed research companion for macOS. Copyright © 2026 Kriti Malhotra; upstream attribution is preserved in [NOTICE.md](NOTICE.md).
 
-**Download Squipi for Mac:** [Open the pre-release downloads](https://github.com/kritimalhotra2019/nvidia/releases/tag/mac-preview-v3). Choose the app archive, unzip it, drag **Squipi.app** to Applications, and open it. Requires Apple Silicon and macOS 26 or later. The current preview is ad-hoc signed and yet to be notarized; macOS may require **System Settings → Privacy & Security → Open Anyway** after the first attempt. Check the release notes for the status of each download.
+## Download and open Squipi on a Mac
 
-The app download contains no model weights, credentials, personal memories or research datasets. On first use, research tools download Python and packages; local Ollama and its Qwen model, or a Nebius API key, are separate setup steps. Optional Kumo specialists require additional setup. To inspect or build the source, see [Build from source](#build-from-source-development-build). The app's MIT license and third-party/model licenses have different terms; see [NOTICE.md](NOTICE.md).
+**Requires:** an Apple Silicon Mac (M1 or newer) with macOS 26 or later, and an internet connection for first-time setup.
+
+1. Open the [Squipi Mac pre-release](https://github.com/kritimalhotra2019/nvidia/releases/tag/mac-preview-v3).
+2. Scroll to **Assets** at the bottom. Click **Squipi-macOS-yet-to-be-notarized-preview-v3.zip** to download it. If the Assets list is collapsed, click it to expand it.
+3. Open the downloaded ZIP in Finder. Open the resulting **Squipi** folder, drag **Squipi.app** into **Applications**, and open it there.
+4. The app is ad-hoc signed and **yet to be notarized by Apple**. If macOS blocks it, first try opening it, then go to **System Settings → Privacy & Security → Open Anyway** and follow the prompts. Do not turn off Gatekeeper.
+5. In Squipi’s **Me → Brain**, choose local Ollama with Qwen or configure Nebius. Ollama and its model must be installed separately; Nebius requires your own API key. The research worker downloads Python and its packages on first use.
+
+**Try it:** the download includes `Synthetic-Households.csv` with 48 fictional records. Attach it in Chat, type your instruction, and press Send. For example: “Remove the name, phone and email columns, keep the rest, and create a Word report with descriptive statistics and labelled charts.” The [same dataset is available separately](https://github.com/kritimalhotra2019/nvidia/releases/download/mac-preview-v3/synthetic-households.csv).
+
+This is a pre-release. The app was tested on the developer’s Mac, but installation, the GUI, Gatekeeper and the models have not yet been tested on a separate clean Mac. The optional research pack downloads an isolated R runtime; Kumo specialists have additional setup requirements. The archive contains no private datasets, personal memories, credentials or model weights. Model and third-party licenses may differ from Squipi’s MIT license; see [NOTICE.md](NOTICE.md).
+
+To inspect or build the source, see [Build from source](#build-from-source-development-build).
 
 *Small octopus. Big insights.*
 
