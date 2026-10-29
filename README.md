@@ -572,7 +572,7 @@ Objectives, quoted requirements and tool receipts are saved separately from conv
 
 `personality.md` defines Squipi’s identity, humour, working style and research/tool directory. The app creates it in the configured instructions folder only when absent; existing edits are preserved. Edit it in Mind → Personality, memory and skills, or open the folder and use your own text editor. The same per-request snapshot is used for Ollama, MLX and Nebius, including task recovery. Greetings use a short voice section; capability questions can include the complete directory. Personality cannot grant permissions or override the current request, and Nebius shows relevant profile content in its approval preview. `memory.md` and `skill.md` remain separate preferences.
 
-The octopus is one three.js file, `web/src/main.js`, with a small contract described in `CLAUDE.md`.
+The octopus is implemented in the three.js file `web/src/main.js`.
 Skirt pattern and the fin flower are settings (Me tab › Look). Personas live in `Sources/Squipi/Brain.swift`.
 
 ## License
