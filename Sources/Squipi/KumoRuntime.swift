@@ -125,6 +125,7 @@ struct KumoSettingsView: View {
                 if runtime.settingUp { Button("Stop setup") { runtime.cancelSetup() }.buttonStyle(Pill(filled: false)) }
             }
                 Text(runtime.status).textSelection(.enabled)
+                Text("Setup downloads a separate Python runtime, libraries and approximately 2.8 GB of model files. Git and Apple Command Line Tools are required. A fresh-Mac setup has not yet been verified.").foregroundStyle(Color.petMuted)
             } else {
                 Button("Check shared prediction setup") { Task { await runtime.checkPredictions() } }.buttonStyle(Pill(filled: false)).disabled(runtime.forecasting)
                 Text(runtime.predictionStatus).textSelection(.enabled)

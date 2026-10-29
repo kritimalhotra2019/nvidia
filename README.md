@@ -2,7 +2,9 @@
 
 MIT-licensed research companion for macOS. Copyright © 2026 Kriti Malhotra; upstream attribution is preserved in [NOTICE.md](NOTICE.md).
 
-**For judges:** download this repository as ZIP, extract it, then follow the build instructions below. This is a source release, not a signed/notarized app installer. Model weights, credentials, personal memories and research datasets are not bundled. Dependencies and model weights retain their own licenses.
+**Download Squipi for Mac:** [Open the pre-release downloads](https://github.com/kritimalhotra2019/nvidia/releases/tag/hackathon-2026-10-30). Choose the app archive, unzip it, drag **Squipi.app** to Applications, and open it. Requires Apple Silicon and macOS 26 or later. The current preview is ad-hoc signed and not notarized; macOS may require **System Settings → Privacy & Security → Open Anyway** after the first attempt. Check the release notes for the status of each download.
+
+The app download contains no model weights, credentials, personal memories or research datasets. On first use, research tools download Python and packages; local Ollama and its Qwen model, or a Nebius API key, are separate setup steps. Optional Kumo specialists require additional setup. To inspect or build the source, see [Build from source](#build-from-source-development-build). The app's MIT license and third-party/model licenses have different terms; see [NOTICE.md](NOTICE.md).
 
 *Small octopus. Big insights.*
 
@@ -63,8 +65,11 @@ brain uses cloud inference. Nebius shows a context approval before a turn: it co
 **and later tool results**, which can include document text or raw values. Literature searches and web
 fetches require a separate network permission.
 
-She also inherits Ribbit's tricks: hold **fn** to dictate into whatever app is in front of you,
-and meeting notes with speaker labels, all on-device (those hotkeys need Accessibility).
+She also inherits Ribbit's tricks: hold **fn** to dictate into whatever app is in front of you
+(the hotkey needs Accessibility), and take meeting notes with Apple speech transcription. The microphone
+is labelled **Me** and combined remote sound is labelled **Call audio**; individual remote speakers are
+not diarized. Apple Intelligence can summarize on-device where supported; Nebius summaries are optional
+and send the approved transcript to Nebius.
 
 Status: **research-assistant upgrade** (tool discovery, persistent task continuation, verified report outputs and reminder reliability).
 This is a bounded interactive agent; autonomous scheduled research and arbitrary Python execution are not implemented. See
@@ -109,7 +114,7 @@ For requested descriptives, `summarize_research_data` calculates selected numeri
 
 Six bundled procedures cover data integrity, descriptive research, causal design, document evidence, economic appraisal and study planning. Relevant procedures are loaded by intent, and `read_research_skill` exposes the full guidance on demand. `economic_appraisal` calculates PV, NPV and benefit-cost ratios from explicit assumptions. `plan_research_power` implements a two-sided normal approximation for equal-size continuous-outcome arms, with explicit attrition/design-effect adjustments. Complex survey estimators, staggered DiD, IV and RDD are not implemented by these additions; links to specialist packages are guidance, not installed capabilities.
 
-Bright Data MCP is a candidate **optional web retrieval provider**, not an alternative harness. Its official server supports search and public-page extraction. A launch integration should expose a small read-only tool set, explicit external-service approval, bounded requests, local source snapshots and timestamps, and credentials kept outside prompts and logs. Squipi currently does not include or enable Bright Data. Web accessibility and provider usage/cost must be qualified with a configured account; no provider guarantees access to every site. See the [official project](https://github.com/brightdata/brightdata-mcp). The [NanoSkill research list](https://nanoskill.ai/blog/best-agent-skills-for-research) is a discovery catalogue, not evidence that its listed skills are compatible with Squipi.
+Bright Data is an **optional web retrieval provider** configured in Me → Research services. Squipi uses its REST API for approved search and page retrieval; this is not a general MCP client. Requests can incur charges, require configured credentials and zones, and do not guarantee access to every site. Paid live retrieval has not been qualified with an account. The [official MCP server](https://github.com/brightdata/brightdata-mcp) is a separate project, not bundled by this integration.
 
 
 ## Research that carries across chats
@@ -339,10 +344,10 @@ provide arbitrary shell execution or a deletion tool. Revoke folder access from 
 | Profiling, cleaning (PII removal), statistics, insights, charts, HTML/Word/PowerPoint reports, document reading | Python worker, this Mac | pandas, numpy, scipy, matplotlib, pyarrow, openpyxl, pypdf, python-docx, python-pptx, pinned; private stdio IPC; reads only files you give her |
 | Literature search, reading a URL | Python worker → OpenAlex / the site | denied by default in the worker; native calls need host authorization, Hermes needs explicit MCP network opt-in |
 | Deciding what to run and explaining results | Ollama, this Mac | qualified setup: `qwen3.5:9b`; thinking off by default for speed; arbitrary replacement models are not qualified |
-| Same, faster and for long tasks (optional) | NVIDIA Nemotron 3.5 Super VL on Nebius Token Factory | explicit mode, payload preview, one approval per turn, key in Keychain; Lightning as the cheap alternative |
+| Cloud research (optional) | NVIDIA Nemotron 3.5 Super VL or Kimi K3 on Nebius Token Factory | explicit provider selection and approval, key in Keychain; latency and costs depend on the request |
 | Optional local inference | MLX + pinned Qwen, this Mac | experimental; Squipi owns planning, tools, memory and permissions |
 | Research memory, plans and execution journal | SQLite in the project, this Mac | complete structured observations; search/delete/continue/clear in Mind |
-| Conversation without Ollama | llama.cpp (LLM.swift), this Mac | Gemma 4 E4B (5 GB) on 16 GB Macs; conversation only, no tools |
+| Earlier built-in conversation model | llama.cpp (LLM.swift), this Mac | Development code retained; not offered in the supported research picker |
 | Speech to text | Apple SpeechAnalyzer (macOS 26) | on-device, no third-party speech models |
 | Voice | macOS speech synthesis | on-device |
 | Meeting summaries (optional) | Apple Intelligence, or NVIDIA Nemotron through Nebius | explicit choice, Nebius transcript consent; call participants share one channel label, not individual diarization |
@@ -524,7 +529,7 @@ afterward. Untimed reminders remain a list item and never fire automatically.
 
 ## Local research pack
 
-Me → Research services installs or repairs a separate `research-env`, an isolated R runtime and local document models. The base worker and selected Ollama/MLX brain remain available. Setup is explicit; research tools never download models automatically.
+**Optional, not installed with the base app:** Me → Research services → **Install or repair local research pack** downloads and installs a separate Python research environment, an isolated R runtime with the `survey` package, and local document models. This requires internet and additional storage. The base worker does not require R; don't start this setup if you do not want those optional components. Installing or repairing the pack does not replace your Ollama/MLX model or delete existing user data. Research tasks do not silently trigger this setup.
 
 The native harness can discover these bounded tools:
 

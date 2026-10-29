@@ -6,11 +6,6 @@ SQUIPI_UV="${2:?Pass bundled uv executable}"
 SQUIPI_KUMO_ROOT="$SQUIPI_DATA_DIR/kumo"
 SQUIPI_SOURCE_REV="af74798bbf7d020d3298f545fb9be383560a18ce"
 SQUIPI_SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
-SQUIPI_PYTHON="/Library/Frameworks/Python.framework/Versions/3.12/bin/python3"
-if [ ! -x "$SQUIPI_PYTHON" ]; then
-  echo 'Kumo setup requires Python 3.12 at /Library/Frameworks/Python.framework/Versions/3.12/bin/python3.' >&2
-  exit 1
-fi
 mkdir -p "$SQUIPI_KUMO_ROOT"
 # Keep setup caches in the explicit Kumo installation, and stop the owned
 # installer child before the UI reports cancellation.
@@ -35,13 +30,14 @@ fi
 git -C "$SQUIPI_KUMO_ROOT/source" checkout --detach "$SQUIPI_SOURCE_REV"
 export UV_PROJECT_ENVIRONMENT="$SQUIPI_KUMO_ROOT/env"
 export UV_CACHE_DIR="$SQUIPI_KUMO_ROOT/cache/uv"
+export UV_PYTHON_INSTALL_DIR="$SQUIPI_KUMO_ROOT/python"
 export HF_HUB_DISABLE_IMPLICIT_TOKEN=1
 export HF_HUB_DISABLE_TELEMETRY=1
 export DO_NOT_TRACK=1
 export HF_HOME="$SQUIPI_KUMO_ROOT/cache/huggingface"
 export HF_XET_CACHE="$SQUIPI_KUMO_ROOT/cache/xet"
 cd "$SQUIPI_KUMO_ROOT/source/Kumo-Forecast"
-"$SQUIPI_UV" sync --frozen --no-dev --python "$SQUIPI_PYTHON" &
+"$SQUIPI_UV" sync --frozen --no-dev --python 3.12 --managed-python &
 SQUIPI_SETUP_CHILD=$!
 wait "$SQUIPI_SETUP_CHILD"
 SQUIPI_SETUP_CHILD=""

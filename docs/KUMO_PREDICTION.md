@@ -45,15 +45,19 @@ Optional: `engine` (`auto`, `tabular`, `relational`), `filename`, `title`,
   limitations are saved. Word briefs include scope and class mapping, while full
   per-entity results stay in CSV. No hundreds-row report dump.
 
-## Existing local runtime, no downloads
+## Fresh-Mac setup limitation
 
-This machine already has an isolated environment at
-`~/kumo-uli/.venv` with Python 3.12.10, `structured-data-models==0.2.1`,
-`torch==2.14.0`, and `pyg-lib==0.9.0+pt214`. It remains separate from the worker,
-Forecast, Ollama and MLX environments. No installation is performed by prediction.
+Relational and Tabular Small are **not ready to use out of the box** on a fresh Mac.
+The downloadable app does not include their model weights or the separate
+`structured-data-models==0.2.1` Python environment. The Brain screen's **Check shared
+prediction setup** only checks an existing configuration; it does not install the
+SDK or download the models. A working environment and compatible local weight files
+must first be prepared and configured manually. The earlier integration was tested
+with an existing developer environment; a complete fresh-Mac installation process
+has not yet been qualified. Do not assume that the example paths below already exist.
 
 Trusted host configuration is `~/Library/Application Support/Squipi/kumo/prediction-config.json`
-(or host environment `SQUIPI_KUMO_PREDICT_CONFIG`). Example:
+(or host environment `SQUIPI_KUMO_PREDICT_CONFIG`). Illustrative configuration (replace every path with the actual absolute path on your Mac):
 
 ```json
 {
@@ -65,7 +69,7 @@ Trusted host configuration is `~/Library/Application Support/Squipi/kumo/predict
 }
 ```
 
-Existing weights, all verified by SHA-256 before loading:
+Expected weight files and hashes for the reviewed model revisions (the files are not bundled):
 
 | Model/task | File | SHA-256 |
 |---|---|---|

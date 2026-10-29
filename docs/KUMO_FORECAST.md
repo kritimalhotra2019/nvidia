@@ -20,9 +20,16 @@ and chart buttons, with an optional Word summary generated from the same results
 
 ## Explicit setup
 
-Run `bash worker/bootstrap-kumo.sh "<Squipi application-support directory>" "<bundled uv executable>"` from a native host action. It never runs a forecast. It uses an isolated `kumo/env`, `kumo/source`, `kumo/models` and caches; existing worker/Ollama/MLX installations are unchanged.
+On a new Mac, **Me → Brain → NVIDIA Kumo Forecast → Set up NVIDIA Kumo…**
+uses the bundled runtime manager to download an isolated Python 3.12 and dependencies.
+Git and Apple Command Line Tools are required. Setup also downloads approximately
+2.79 GB of model files; allow additional storage for packages. The installer path
+has been checked with stubs, but a complete fresh-Mac setup and live forecast have
+not yet been verified. Use **Check Kumo setup** after installation.
 
-The reviewed SDK revision is `NVIDIA/Kumo-TS@af74798bbf7d020d3298f545fb9be383560a18ce`, distribution `kumo-forecast==1.0.0`. `uv sync --frozen --no-dev` uses its lockfile and the existing Python 3.12 interpreter. Only these three files are downloaded, never whole model repositories:
+For developers, the same operation can be started manually. Run `bash worker/bootstrap-kumo.sh "<Squipi application-support directory>" "<bundled uv executable>"` from a native host action. It never runs a forecast. It uses an isolated `kumo/env`, `kumo/source`, `kumo/models` and caches; existing worker/Ollama/MLX installations are unchanged.
+
+The reviewed SDK revision is `NVIDIA/Kumo-TS@af74798bbf7d020d3298f545fb9be383560a18ce`, distribution `kumo-forecast==1.0.0`. `uv sync --frozen --no-dev` uses its lockfile and a managed Python 3.12 interpreter. Only these three files are downloaded, never whole model repositories:
 
 | Repository / revision | File | Bytes |
 |---|---|---:|
