@@ -2,7 +2,7 @@
 
 MIT-licensed research companion for macOS. Copyright © 2026 Kriti Malhotra; upstream attribution is preserved in [NOTICE.md](NOTICE.md).
 
-**Download Squipi for Mac:** [Open the pre-release downloads](https://github.com/kritimalhotra2019/nvidia/releases/tag/hackathon-2026-10-30). Choose the app archive, unzip it, drag **Squipi.app** to Applications, and open it. Requires Apple Silicon and macOS 26 or later. The current preview is ad-hoc signed and not notarized; macOS may require **System Settings → Privacy & Security → Open Anyway** after the first attempt. Check the release notes for the status of each download.
+**Download Squipi for Mac:** [Open the pre-release downloads](https://github.com/kritimalhotra2019/nvidia/releases/tag/mac-preview-v3). Choose the app archive, unzip it, drag **Squipi.app** to Applications, and open it. Requires Apple Silicon and macOS 26 or later. The current preview is ad-hoc signed and not notarized; macOS may require **System Settings → Privacy & Security → Open Anyway** after the first attempt. Check the release notes for the status of each download.
 
 The app download contains no model weights, credentials, personal memories or research datasets. On first use, research tools download Python and packages; local Ollama and its Qwen model, or a Nebius API key, are separate setup steps. Optional Kumo specialists require additional setup. To inspect or build the source, see [Build from source](#build-from-source-development-build). The app's MIT license and third-party/model licenses have different terms; see [NOTICE.md](NOTICE.md).
 
@@ -24,7 +24,7 @@ write your objective, and follow the plan, tool results and generated artifacts 
 
 **Start here:** [build instructions](#build-from-source-development-build),
 [architecture](docs/ARCHITECTURE.md), [verification and limitations](docs/VERIFICATION.md).
-Use synthetic data to try: “Profile this dataset, remove direct personal identifiers, save a cleaned
+Download [the synthetic household test data](examples/synthetic-households.csv), attach it in Chat, and try: “Profile this dataset, remove direct personal identifiers, save a cleaned
 Excel file, then create a concise Word report with descriptive statistics, labelled graphs and limitations.”
 
 Kumo models are optional specialist tools, not conversational replacements for Qwen. The direct forms
