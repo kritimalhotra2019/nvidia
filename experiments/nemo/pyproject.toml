@@ -1,0 +1,19 @@
+[project]
+name = "squipi-nemo-trial"
+version = "0.1.0"
+description = "Isolated local NeMo Agent Toolkit trial for resumable Squipi research"
+requires-python = ">=3.11,<3.14"
+dependencies = ["nvidia-nat==1.9.0", "nvidia-nat-langchain==1.9.0", "langchain-openai>=1,<2", "squipi-worker"]
+
+[project.scripts]
+squipi-nemo = "squipi_nemo.cli:main"
+
+[project.entry-points.'nat.components']
+squipi_nemo = "squipi_nemo.register"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["squipi_nemo*"]

@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>squipi</title>
+<style>
+  html, body { margin: 0; padding: 0; background: transparent; overflow: hidden; width: 320px; height: 320px; -webkit-user-select: none; user-select: none; cursor: default; }
+  canvas { display: block; width: 320px; height: 320px; }
+  body.bg { background: radial-gradient(circle at 40% 30%, #526674, #172b3a); }
+  body.white { background: #ffffff; }
+  #ui { position: absolute; inset: 0; pointer-events: none; font-family: -apple-system, "SF Pro Rounded", "Helvetica Neue", sans-serif; color: #172b3a; }
+  .card { position: absolute; background: #fff; border-radius: 30px; padding: 28px 32px; box-shadow: 0 16px 50px rgba(23, 43, 58, 0.10); border: 3px solid #dbede8; }
+  .card h3 { margin: 0 0 14px; font-size: 26px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; color: #0f766e; }
+  .card .big { font-size: 40px; font-weight: 600; line-height: 1.25; min-height: 1.25em; }
+  .cursor { display: inline-block; width: 4px; height: 1em; background: #0f766e; margin-left: 4px; vertical-align: -0.15em; animation: blink 0.9s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: 0 } }
+  .line { display: flex; gap: 14px; align-items: flex-start; font-size: 32px; line-height: 1.3; margin: 10px 0; opacity: 0; transform: translateY(10px); transition: all 0.35s; }
+  .line.on { opacity: 1; transform: none; }
+  .chip { flex: none; font-size: 22px; font-weight: 800; padding: 6px 14px; border-radius: 999px; margin-top: 4px; }
+  .me { background: #dbede8; color: #0f766e; } .them { background: #e1f0f8; color: #2b73a6; }
+  .row { font-size: 34px; line-height: 1.35; margin: 8px 0; opacity: 0; transition: opacity 0.35s; }
+  .row.on { opacity: 1; }
+  .row b { color: #0f766e; }
+  .kbd { display: inline-block; padding: 8px 20px; border-radius: 14px; background: #f7f6f2; border: 3px solid #dbede8; font-weight: 800; font-size: 40px; }
+  #cap.min { background: none; box-shadow: none; padding: 0; border-radius: 0; font: 500 46px/1.3 'Diatype', -apple-system, sans-serif; color: #172b3a; top: auto; bottom: 9%; max-width: 70%; letter-spacing: -0.4px; -webkit-line-clamp: unset; }
+  #cur { position: absolute; pointer-events: none; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.25)); }
+  /* The top margin leaves her face, document and laptop clear at the native 320px size. */
+  #cap { position: absolute; left: 50%; top: 4px; transform: translateX(-50%); width: max-content; max-width: calc(100% - 16px);
+         box-sizing: border-box; padding: 6px 10px; border-radius: 12px; pointer-events: none;
+         background: rgba(255, 255, 255, 0.94); color: #172b3a; font: 600 12px/16px -apple-system, "SF Pro Rounded", "Helvetica Neue", sans-serif;
+         text-align: center; font-variant-numeric: tabular-nums; overflow-wrap: anywhere;
+         display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden;
+         box-shadow: 0 2px 8px rgba(23, 43, 58, 0.12); transition: opacity 0.25s; opacity: 0; }
+</style>
+</head>
+<body>
+<canvas id="c" width="320" height="320"></canvas>
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>

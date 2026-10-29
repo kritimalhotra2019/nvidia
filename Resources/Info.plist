@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>CFBundleName</key><string>Squipi</string>
+  <key>CFBundleDisplayName</key><string>Squipi</string>
+  <key>CFBundleIdentifier</key><string>com.kritimalhotra.squipi</string>
+  <key>CFBundleExecutable</key><string>Squipi</string>
+  <key>CFBundleIconFile</key><string>Squipi</string>
+  <key>CFBundlePackageType</key><string>APPL</string>
+  <key>CFBundleVersion</key><string>1</string>
+  <key>CFBundleShortVersionString</key><string>0.1.0</string>
+  <key>LSMinimumSystemVersion</key><string>26.0</string>
+  <key>CFBundleDocumentTypes</key>
+  <array>
+    <dict>
+      <key>CFBundleTypeName</key><string>Dataset or document</string>
+      <key>CFBundleTypeRole</key><string>Viewer</string>
+      <key>LSHandlerRank</key><string>Alternate</string>
+      <key>LSItemContentTypes</key>
+      <array>
+        <string>public.comma-separated-values-text</string>
+        <string>public.tab-separated-values-text</string>
+        <string>public.plain-text</string>
+        <string>org.openxmlformats.spreadsheetml.sheet</string>
+        <string>com.microsoft.excel.xls</string>
+        <string>com.adobe.pdf</string>
+        <string>org.openxmlformats.wordprocessingml.document</string>
+        <string>org.openxmlformats.presentationml.presentation</string>
+        <string>net.daringfireball.markdown</string>
+        <string>public.data</string>
+      </array>
+    </dict>
+  </array>
+  <key>LSUIElement</key><false/>
+  <key>NSHighResolutionCapable</key><true/>
+  <key>NSMicrophoneUsageDescription</key><string>Squipi listens while you hold the hotkey or record a meeting. Apple speech recognition and meeting notes stay on this Mac.</string>
+  <key>NSAudioCaptureUsageDescription</key><string>For meeting notes, Squipi records call audio and transcribes it on this Mac using Apple Speech. Recorded audio is not uploaded.</string>
+  <key>NSLocationWhenInUseUsageDescription</key><string>Squipi uses your Mac's location only to name the place and fetch today's weather from Apple Weather. Coordinates are rounded and nothing leaves this Mac.</string>
+  <key>NSLocationUsageDescription</key><string>Squipi uses your Mac's location only to name the place and fetch today's weather from Apple Weather. Coordinates are rounded and nothing leaves this Mac.</string>
+  <key>NSSpeechRecognitionUsageDescription</key><string>Used for the Apple on-device speech engine. Nothing leaves this Mac.</string>
+</dict>
+</plist>

@@ -1,0 +1,8 @@
+pandera[pandas]
+presidio-analyzer
+presidio-anonymizer
+docling
+pyfixest
+dowhy
+pytest
+openpyxl

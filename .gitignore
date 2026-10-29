@@ -1,0 +1,25 @@
+build/
+.build/
+web/dist*/
+web/shots/
+web/node_modules/
+worker/.venv/
+worker/**/__pycache__/
+worker/.pytest_cache/
+worker/*.egg-info/
+*.gguf
+.DS_Store
+worker/selftest/
+
+# Private configuration, generated files and downloaded models
+.env
+.env.*
+!.env.example
+*.log
+**/__pycache__/
+**/.venv/
+*.safetensors
+*.ckpt
+*.pt
+*.pem
+*.key
