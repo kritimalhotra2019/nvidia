@@ -35,7 +35,7 @@ required for local research after dependencies and local weights have been downl
 **Supported local setup:** Squipi’s native agent with Ollama `qwen3.5:9b`.
 The app offers this local combination, an experimental MLX + Qwen option, and the separate Nebius cloud option. Deep Agents, Hermes, NeMo,
 the built-in conversation-only model and other local models are excluded from the normal picker
-while research-loop qualification remains incomplete. Their development code and saved work are retained.
+because they have not passed the research workflow tests. Their development code and saved work are retained.
 [Experimental NeMo runner and recovery checks](experiments/nemo/README.md).
 
 A small blue flapjack octopus with round glasses who lives on your Mac desktop and works as a private, local-first
@@ -73,7 +73,7 @@ This is a bounded interactive agent; autonomous scheduled research and arbitrary
 ## In her own words
 
 > I live on the desk, next to the matcha. Give me a file and tell me what you want to find out.
-> Eight arms, one defensible counterfactual.
+> Eight arms. Plenty of questions. Let’s find some answers.
 > I ask before cloud-assisted research. Approval for a project objective covers its later tool results and resumptions to the same provider/model and selected inputs; changing those inputs asks again.
 
 ## Native research agent and Mac access
@@ -101,7 +101,7 @@ and approval. No Full Disk Access or Accessibility permission is enabled automat
 
 [Archived Deep Agents experiment](experiments/deepagents/README.md).
 
-The native harness owns the objective, input scope, journal, action validation and completion decision. A model selects methods and tool arguments; a selected attachment never launches a fixed analysis workflow. Wrong-source actions are rejected, repeated identical rejected actions pause with saved progress, and empty model replies have bounded retries. A compact manifest keeps dataset, analysis and output handles available as the conversation grows.
+Squipi keeps track of your objective, selected files, completed steps and outputs. A model selects methods and tool arguments; a selected attachment never launches a fixed analysis workflow. Wrong-source actions are rejected, repeated identical rejected actions pause with saved progress, and empty model replies have bounded retries. A saved record keeps track of datasets, analyses and outputs as the conversation grows.
 
 Continuation verifies cached deterministic results against source and ancestor hashes, column definitions, worker code and output bytes. A cache miss does not execute anything during restoration. Valid prior cleaning and exports are reused; changed inputs or artifacts require fresh work. Whole-document review can reuse verified reading spans and saved notes, and reports extraction gaps. This is user-directed continuation, not an unlimited background runner.
 
