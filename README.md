@@ -9,8 +9,8 @@ MIT-licensed research companion for macOS. Copyright © 2026 Kriti Malhotra; ups
 1. Open the [Squipi Mac pre-release](https://github.com/kritimalhotra2019/nvidia/releases/tag/mac-preview-v3).
 2. Scroll to **Assets** at the bottom. Click **Squipi-macOS-AppleSilicon.zip** to download it. If the Assets list is collapsed, click it to expand it.
 3. Open the downloaded ZIP in Finder. Open the resulting **Squipi** folder, drag **Squipi.app** into **Applications**, and open it there.
-4. This pre-release is signed with Developer ID and **notarized by Apple**.
-5. In Squipi’s **Me → Brain**, choose local Ollama with Qwen or configure Nebius. Ollama and its model must be installed separately; Nebius requires your own API key. The research worker downloads Python and its packages on first use.
+4. This pre-release is signed with my Apple Developer ID and **notarized by Apple**.
+5. In Squipi’s **Me → Brain**, choose a local or cloud option: Qwen through Ollama, experimental Qwen through Apple MLX (using Metal), or NVIDIA Nemotron through Nebius. Ollama and MLX require separate setup and local model downloads; Nebius requires your own API key and approval before sending task data. The research worker downloads Python and its packages on first use.
 
 **Try it:** download the separate release asset `synthetic-households.csv` with 48 fictional records. Attach it in Chat, type your instruction, and press Send. For example: “Remove the name, phone and email columns, keep the rest, and create a Word report with descriptive statistics and labelled charts.” The [same dataset is available separately](https://github.com/kritimalhotra2019/nvidia/releases/download/mac-preview-v3/synthetic-households.csv).
 
